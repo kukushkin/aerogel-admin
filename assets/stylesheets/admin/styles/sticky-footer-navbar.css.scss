@@ -1,0 +1,42 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: $footer-height;
+}
+
+body > .container {
+  padding: 30px 15px 0;
+}
+.container .text-muted {
+  // margin: 10px 0;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: $footer-height;
+  color: $footer-fg;
+  background-color: $footer-bg;
+
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+#footer-contents {
+  @extend .center-absolutely;
+  // @extend .text-muted;
+  vertical-align: middle;
+  line-height: $footer-height;
+  A {
+    color: $footer-link-color;
+  }
+}

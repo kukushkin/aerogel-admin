@@ -1,0 +1,20 @@
+$modal-header-bg: transparent !default;
+$modal-footer-bg: transparent !default;
+
+
+div.modal-header {
+    background-color: $modal-header-bg;
+    border-radius: $modal-radius $modal-radius 0 0;
+}
+div.modal-footer {
+    background-color: $modal-footer-bg;
+    border-radius: 0 0 $modal-radius $modal-radius;
+}
+
+$modal-vertical-pos: 50% !default;
+.modal-dialog {
+//    margin-top:$modal-vertical-pos;
+}
+.modal-content {
+//    margin-top:-$modal-vertical-pos;
+}

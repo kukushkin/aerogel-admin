@@ -1,0 +1,11 @@
+// ? require bootstrap
+// ? require font-awesome
+
+// use bootstrap
+@import "admin/global";
+@import "admin/bootstrap-settings";
+@import "bootstrap";
+@import "font-awesome";
+
+@import "admin/utils/*";
+@import "admin/styles/*";

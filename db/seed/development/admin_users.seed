@@ -1,0 +1,38 @@
+model User
+
+find_by :full_name
+
+# Values of attributes listed here will be set even
+# if they exist already in the matching database object.
+#
+# Other attributes in the seed data will be treated as a default value,
+# i.e. they will only be set if the matching database object does not exist
+# or its corresponding attribute is not set.
+#
+# Usage:
+#   force :value
+# or:
+#   force [:value, :description]
+#
+# default is: no fields are forced
+
+#force :value
+
+seeds [
+{
+  full_name: 'admin',
+  roles: [:user, :admin],
+  emails:[{
+    email: 'admin@admin',
+    confirmed: true
+  }],
+  authentications:[{
+    provider: :password,
+    uid: 'admin@admin',
+    email_id: 'admin@admin',
+    password: 'admin',
+    password_confirmation: 'admin'
+  }]
+}
+]
+

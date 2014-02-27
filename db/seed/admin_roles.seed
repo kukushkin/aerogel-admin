@@ -1,0 +1,8 @@
+model Role
+
+find_by [:slug]
+
+seeds [
+{ slug: :admin,  name: "Administrator" }
+]
+

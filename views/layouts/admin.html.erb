@@ -1,11 +1,65 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-    <title>admin</title>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%= yield %>
+    <title><%= page_title ? page_title : request.path_info %> — aerogel/admin</title>
 
-</body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <%= assets :admin %>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <%= partial 'layouts/admin/menu' %>
+      </div>
+    </div>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+    <% if page_title %>
+      <div class="page-header">
+        <h1><%= page_title %></h1>
+      </div>
+    <% end %>
+
+    <% if flash[:error] %>
+        <div class="alert alert-danger"><%= flash[:error] %></div>
+    <% end %>
+    <% if flash[:debug] %>
+        <div class="alert alert-warning"><%= flash[:debug] %></div>
+    <% end %>
+    <% if flash[:notice] %>
+        <div class="alert alert-info"><%= flash[:notice] %></div>
+    <% end %>
+
+        <%= yield %>
+
+        <p></p>
+    </div>
+
+    <div id="footer">
+      <div class="container" id="footer-contents">
+        <span class="home-link pull-left">
+            <a href="/"><%= icon 'fa-home' %> Home</a>
+        </span>
+        &nbsp;/
+        <span class="pull-right">
+            aerogel/admin
+        </span>
+      </div>
+    </div>
+
+
+  </body>
 </html>
+
