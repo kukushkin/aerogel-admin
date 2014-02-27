@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alex@kukushk.in"]
   spec.description   = %q{Admin panel for aerogel CMS}
   spec.summary       = %q{Admin panel for aerogel CMS}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/kukushkin/aerogel-admin"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
