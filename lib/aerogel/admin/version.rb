@@ -1,5 +1,5 @@
 module Aerogel
-  module Module123
+  module Admin
     VERSION = "0.0.1"
   end
 end
