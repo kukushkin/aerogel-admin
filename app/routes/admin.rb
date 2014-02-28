@@ -1,5 +1,7 @@
 namespace "/admin" do
 
+  admin_menu "/admin/lorem", label: 'Lorem'
+
   before do
     layout "admin"
 

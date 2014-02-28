@@ -1,5 +1,6 @@
 require 'aerogel/core'
 require "aerogel/admin/version"
+require "aerogel/admin/menu"
 
 module Aerogel
   module Admin

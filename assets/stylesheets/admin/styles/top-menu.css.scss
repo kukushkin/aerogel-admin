@@ -1,0 +1,3 @@
+.has-shadow {
+    @include box-shadow(#000 0px 0px 10px);
+}

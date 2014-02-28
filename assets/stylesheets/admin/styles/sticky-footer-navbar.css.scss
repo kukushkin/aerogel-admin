@@ -9,12 +9,11 @@ body {
   margin-bottom: $footer-height;
 }
 
-body > .container {
-  padding: 30px 15px 0;
+
+#page-content {
+  padding: $header-height+$padding-base-vertical 15px 0;
 }
-.container .text-muted {
-  // margin: 10px 0;
-}
+
 
 #footer {
   position: absolute;
