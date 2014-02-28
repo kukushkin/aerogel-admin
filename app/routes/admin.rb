@@ -11,7 +11,7 @@ namespace "/admin" do
   end
 
   get "/" do
-    flash[:notice] = "Welcome, admin!"
+    flash.now[:notice] = "Welcome, admin!"
     pass
   end
 
