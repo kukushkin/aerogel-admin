@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'aerogel-icons';
-	src:url('aerogel-icons.eot?dmxr4k');
-	src:url('aerogel-icons.eot?#iefixdmxr4k') format('embedded-opentype'),
-		url('aerogel-icons.woff?dmxr4k') format('woff'),
-		url('aerogel-icons.ttf?dmxr4k') format('truetype'),
-		url('aerogel-icons.svg?dmxr4k#aerogel-icons') format('svg');
+	src:asset-url('aerogel-icons.eot?dmxr4k');
+	src:asset-url('aerogel-icons.eot?#iefixdmxr4k') format('embedded-opentype'),
+		asset-url('aerogel-icons.woff?dmxr4k') format('woff'),
+		asset-url('aerogel-icons.ttf?dmxr4k') format('truetype'),
+		asset-url('aerogel-icons.svg?dmxr4k#aerogel-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
