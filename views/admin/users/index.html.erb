@@ -1,6 +1,21 @@
 <% page_title "Users" %>
 
-<p>
- #users /
- <%= link_to 'roles' %>
-</p>
+<%= partial "admin/users/tabs" %>
+
+<%
+    table User.all do
+        column :full_name do |u|
+            if can? "/admin/users/#{u.id}/edit"
+                link_to "/admin/users/#{u.id}/edit", u.full_name
+            else
+                h u.full_name
+            end
+        end
+        column :email do |u|
+            u.emails.first.email
+        end
+        column :roles do |u|
+            u.roles.map{|v| v.to_s}.join(", ")
+        end
+    end
+%>

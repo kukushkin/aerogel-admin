@@ -1,0 +1,10 @@
+<% page_title "Edit user profile" %>
+
+<% form @user do %>
+<%=     field :full_name %>
+<%      fieldset :emails do %>
+<%=         field :email, readonly: true %>
+<%      end %>
+<%=     field :roles, readonly: true %>
+<%=     button "Save changes" %>
+<% end %>

@@ -1,0 +1,11 @@
+<% page_title "Access" %>
+
+<%= partial "admin/users/tabs" %>
+
+<%
+    table Access.all do
+        column :path
+        column :access
+        column :role
+    end
+%>

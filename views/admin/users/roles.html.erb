@@ -1,6 +1,10 @@
 <% page_title "Roles" %>
 
-<p>
- <%= link_to '.', 'users' %> /
- #roles
- </p>
+<%= partial "admin/users/tabs" %>
+
+<%
+    table Role.all do
+        column :slug, label: "ID"
+        column :name
+    end
+%>
