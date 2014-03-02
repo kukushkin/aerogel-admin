@@ -13,3 +13,9 @@ end
 def admin_menu_items
   Aerogel::Admin::Menu.instance.items.sort_by( &:priority )
 end
+
+# Renders a link to open a modal window with remote content.
+#
+def link_to_modal( url, text, opts = {} )
+  tag :a, text, href: url, 'data-toggle' => 'modal', 'data-target' => '#adminModal'
+end

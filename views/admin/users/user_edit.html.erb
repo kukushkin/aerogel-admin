@@ -1,6 +1,7 @@
 <% page_title "Edit user profile" %>
 
-<% form @user do %>
+<% form @user, action: "/admin/users/#{@user.id}/edit",
+    html_params: {'data-async' => nil, 'data-target' => '#modal-content'} do %>
 <%=     field :full_name %>
 <%      fieldset :emails do %>
 <%=         field :email, readonly: true %>

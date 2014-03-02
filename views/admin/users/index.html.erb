@@ -6,7 +6,8 @@
     table User.all do
         column :full_name do |u|
             if can? "/admin/users/#{u.id}/edit"
-                link_to "/admin/users/#{u.id}/edit", u.full_name
+                link_to_modal "/admin/users/#{u.id}/edit", u.full_name
+                # tag :a, 'helllo', 'data-toggle' => 'modal', 'data-target' => '#myModal'
             else
                 h u.full_name
             end
