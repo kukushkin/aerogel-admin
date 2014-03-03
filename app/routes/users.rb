@@ -12,12 +12,12 @@ namespace "/admin/users" do
   end
 
   get "/:id/edit" do
-    @user = User.find params[:id]
+    @user = User.find( params[:id] ) or halt 404
     view "admin/users/user_edit"
   end
 
   post "/:id/edit" do
-    @user = User.find params[:id]
+    @user = User.find( params[:id] ) or halt 404
     if @user.update_attributes params[:user].except( :emails, :authentications )
       flash[:notice] = "User details saved"
       redirect '/admin/users/'
