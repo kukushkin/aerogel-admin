@@ -4,16 +4,20 @@
 
 <%
     table User.all do
+        column :authentications, label: '' do |u|
+            u.authentications.map{|a| auth_provider_as_icon a.provider }.join
+        end
         column :full_name do |u|
             if can? "/admin/users/#{u.id}/edit"
-                link_to_modal "/admin/users/#{u.id}/edit", u.full_name
+                link_to_modal "/admin/users/#{u.id}/edit", h( u.full_name )
                 # tag :a, 'helllo', 'data-toggle' => 'modal', 'data-target' => '#myModal'
             else
                 h u.full_name
             end
         end
         column :email do |u|
-            u.emails.first.email
+            email = u.emails.first
+            h( email.email)+" "+user_email_confirmed_as_icon( email )
         end
         column :roles do |u|
             u.roles.map{|v| v.to_s}.join(", ")

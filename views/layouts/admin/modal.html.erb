@@ -9,19 +9,31 @@
     <%= javascript_tag "controllers/admin-modal" %>
   </head>
   <body>
-      <div class="modal-content">
+      <!-- div class="modal-content" -->
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title" id="myModalLabel"><%= page_title || current_url %></h4>
         </div>
         <div class="modal-body">
-          <%= yield %>
+
+            <% if flash[:error] %>
+                <div class="alert alert-danger"><%= flash[:error] %></div>
+            <% end %>
+            <% if flash[:debug] %>
+                <div class="alert alert-warning"><%= flash[:debug] %></div>
+            <% end %>
+            <% if flash[:notice] %>
+                <div class="alert alert-info"><%= flash[:notice] %></div>
+            <% end %>
+
+            <%= yield %>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
-      </div>
+      <!-- /div -->
 
   </body>
   </html>

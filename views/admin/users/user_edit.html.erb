@@ -1,11 +1,25 @@
 <% page_title "Edit user profile" %>
 
 <% form @user, action: "/admin/users/#{@user.id}/edit",
-    html_params: {'data-async' => nil, 'data-target' => '#modal-content'} do %>
+    html_params: {'data-async' => nil, 'data-target' => '.modal-content'} do %>
 <%=     field :full_name %>
-<%      fieldset :emails do %>
-<%=         field :email, readonly: true %>
-<%      end %>
-<%=     field :roles, readonly: true %>
+<%      table object.emails do
+            column :email
+            column :confirmed, label: '' do |e|
+                user_email_confirmed_as_label( e )
+            end
+            column :confirmation_link, label: '' do |e|
+                e.confirmed ? '' : link_to("#request_email_confirmation", "Send confirmation request")
+            end
+        end
+%>
+<%      table object.authentications do
+            column :provider, label: "Authentication method" do |a|
+                auth_provider_as_icon( a.provider )+" #{auth_provider_as_text a.provider}"
+            end
+            column :uid
+        end
+%>
+<%=     field :roles, value: object.roles.join(", ") %>
 <%=     button "Save changes" %>
 <% end %>

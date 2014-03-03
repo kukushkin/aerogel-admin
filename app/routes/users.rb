@@ -18,11 +18,11 @@ namespace "/admin/users" do
 
   post "/:id/edit" do
     @user = User.find params[:id]
-    if @user.update_attributes params[:user].except( :roles, :emails, :authentications )
+    if @user.update_attributes params[:user].except( :emails, :authentications )
       flash[:notice] = "User details saved"
       redirect '/admin/users/'
     end
-    flash[:error] = "Failed to update user profile"
+    flash.now[:error] = "Failed to update user profile"
     view "admin/users/user_edit"
   end
 
