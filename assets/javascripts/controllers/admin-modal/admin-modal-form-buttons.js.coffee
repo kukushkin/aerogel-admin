@@ -8,11 +8,26 @@ admin_modal_replace_buttons = (el, target) ->
         button = $(this)
         form = button.closest "form"
         target = form.closest('.modal-content').find target
-        button.click ->
-            form.submit()
-        button.appendTo target
-        # console?.log "Moving button: #{button.attr 'type'}:'#{button.text()}' -> #{target}"
-        enable_form_submit_on_enter form
+        if button.attr('type') == 'submit'
+            admin_modal_replace_submit_button button, form, target
+        if button.attr('type') == 'cancel'
+            admin_modal_replace_cancel_button button, form, target
+
+
+# Process 'submit' button
+#
+admin_modal_replace_submit_button = (button, form, target) ->
+    button.click ->
+        form.submit()
+    button.appendTo target
+    enable_form_submit_on_enter form
+
+# Process 'cancel' button
+#
+admin_modal_replace_cancel_button = (button, form, target) ->
+    button.attr 'data-dismiss', 'modal'
+    button.appendTo target
+
 
 
 enable_form_submit_on_enter = (form) ->
@@ -26,5 +41,5 @@ enable_form_submit_on_enter = (form) ->
 
 
 $ ->
-    admin_modal_replace_buttons ".modal-body button[type=submit], .modal-body button[type=cancel]", ".modal-footer"
+    admin_modal_replace_buttons ".modal-body .btn[type=submit], .modal-body .btn[type=cancel]", ".modal-footer"
 

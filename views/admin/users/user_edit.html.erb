@@ -20,6 +20,8 @@
         end
 %>
 <%=     field :roles, value: object.roles.join(", ") %>
+<%=     button :cancel, url: '/admin/users/' %>
 <%=     button "Save changes" %>
+
 
 <% end %>
