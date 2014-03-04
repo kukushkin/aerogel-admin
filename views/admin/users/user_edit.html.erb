@@ -1,7 +1,6 @@
 <% page_title "Edit user profile" %>
 
-<% form @user, action: "/admin/users/#{@user.id}/edit",
-    html_params: {'data-async' => nil, 'data-target' => '.modal-content'} do %>
+<% form @user, action: "/admin/users/#{@user.id}/edit" do %>
 <%=     field :full_name %>
 <%      table object.emails do
             column :email
@@ -21,5 +20,8 @@
         end
 %>
 <%=     field :roles, value: object.roles.join(", ") %>
+<%=     field :sample_textarea, as: :textarea, value: '' %>
 <%=     button "Save changes" %>
+<%=     button :cancel, "Cancel" %>
+
 <% end %>

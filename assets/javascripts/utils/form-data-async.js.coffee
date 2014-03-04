@@ -4,16 +4,26 @@
 # in an element specified by form's +data-target+ attribute.
 #
 
-$ ->
-    $('form[data-async]').on 'submit', (event)->
+
+( exports ? this ).form_data_async_enable = (el, target) ->
+    $(el).on 'submit', (event)->
         form = $(this)
-        target = $(form.attr 'data-target')
         $.ajax
             type: form.attr 'method'
             url: form.attr 'action'
             data: form.serialize()
             error: (x, e, status ) ->
                 console?.log "form-data-async submit error: #{e}, status: #{status}"
-            success: (data, status) ->
-                target.html data
+            success: (data, status, xhr) ->
+                content_type = xhr.getResponseHeader 'content-type'
+                if /^text\/html/.test content_type
+                    $(target).empty()
+                    $(target).html data
+                else
+                    console?.log "form-data-async ignoring content: #{content_type}"
+
         event.preventDefault()
+    console?.log "form-data-async enabled for #{el}, target:#{target}"
+
+$ ->
+    console?.log "form-data-async loaded"
