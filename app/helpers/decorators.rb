@@ -3,7 +3,7 @@
 def user_email_confirmed_as_icon( email )
   email.confirmed ?
     icon( "glyphicon-ok-sign", title: "confirmed", style: "color: green" ) :
-    icon( "glyphicon-question-sign", title: "confirmed" )
+    icon( "glyphicon-question-sign", title: "not confirmed" )
 end
 
 # Renders UserEmail.confirmed attribute as label
