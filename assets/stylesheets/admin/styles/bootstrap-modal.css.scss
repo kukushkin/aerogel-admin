@@ -9,6 +9,7 @@ div.modal-header {
 div.modal-footer {
     background-color: $modal-footer-bg;
     border-radius: 0 0 $modal-radius $modal-radius;
+    margin-top: 0;
 }
 
 $modal-vertical-pos: 50% !default;

@@ -22,5 +22,8 @@
         column :roles do |u|
             u.roles.map{|v| v.to_s}.join(", ")
         end
+        column :actions, label: '' do |u|
+            link_to_modal "/admin/users/#{u.id}/delete", icon_delete
+        end
     end
 %>

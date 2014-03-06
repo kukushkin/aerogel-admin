@@ -1,0 +1,12 @@
+<% page_title "Delete user?" %>
+
+<% form @user, action: "/admin/users/#{@user.id}/delete" do %>
+<p>
+    Do you really want to delete <b><%= h object.full_name %></b>?
+</p>
+<p class="alert alert-warning">
+    <%= icon_warning %> This is permanent and irreversible.
+</p>
+<%=     button :cancel, url: '/admin/users/' %>
+<%=     button :danger_submit, label: "Delete user" %>
+<% end %>

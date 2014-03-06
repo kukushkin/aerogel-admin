@@ -19,11 +19,26 @@ namespace "/admin/users" do
   post "/:id/edit" do
     @user = User.find( params[:id] ) or halt 404
     if @user.update_attributes params[:user].except( :emails, :authentications )
-      flash[:notice] = "User details saved"
-      redirect '/admin/users/'
+      redirect '/admin/users/', notice: "User details saved"
     end
     flash.now[:error] = "Failed to update user profile"
     view "admin/users/user_edit"
+  end
+
+  get "/:id/delete" do
+    @user = User.find( params[:id] ) or halt 404
+    view "admin/users/user_delete"
+  end
+
+  post "/:id/delete" do
+    @user = User.find( params[:id] ) or halt 404
+    if current_user == @user
+      redirect '/admin/users/', error: "No, you cannot delete self"
+    else
+      @user.destroy
+      redirect '/admin/users/', notice: "User '#{h @user.full_name}' deleted"
+    end
+    view "admin/users/user_delete"
   end
 
   #
