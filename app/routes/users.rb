@@ -11,9 +11,29 @@ namespace "/admin/users" do
     pass
   end
 
+  get "/new" do
+    @admin_user_new_form = ::Admin::UserNewForm.new
+    pass
+  end
+
+  post "/new" do
+    @admin_user_new_form = ::Admin::UserNewForm.new( params[:admin_user_new_form] )
+    pass unless @admin_user_new_form.valid?
+    user = User.create_from_admin_user_new_form @admin_user_new_form
+    unless user.save
+      flash[:error] = "Failed to save User: #{user.errors.inspect}"
+      pass
+    end
+    user.request_activation!
+    email 'user/account_activation', user
+    authentication = user.request_password_reset! @admin_user_new_form.email
+    email 'user/password_reset', authentication
+    redirect '/admin/users/', notice: "User '#{user.full_name}' created"
+  end
+
   get "/:id/edit" do
     @user = User.find( params[:id] ) or halt 404
-    view "admin/users/user_edit"
+    pass
   end
 
   post "/:id/edit" do
@@ -22,12 +42,12 @@ namespace "/admin/users" do
       redirect '/admin/users/', notice: "User details saved"
     end
     flash.now[:error] = "Failed to update user profile"
-    view "admin/users/user_edit"
+    pass
   end
 
   get "/:id/delete" do
     @user = User.find( params[:id] ) or halt 404
-    view "admin/users/user_delete"
+    pass
   end
 
   post "/:id/delete" do
@@ -38,14 +58,15 @@ namespace "/admin/users" do
       @user.destroy
       redirect '/admin/users/', notice: "User '#{h @user.full_name}' deleted"
     end
-    view "admin/users/user_delete"
+    pass
   end
 
   #
   # Common User controller routes
   #
-  route :get, :post, ['/', '/:action'] do
+  route :get, :post, ['/', '/:action', '/:id/:action'] do
     action = params[:action] || 'index'
+    pass unless [:index, :new, :edit, :delete].include? action.to_sym
     view "admin/users/#{action}"
   end
 

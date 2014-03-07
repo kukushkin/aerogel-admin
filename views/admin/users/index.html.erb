@@ -2,14 +2,15 @@
 
 <%= partial "admin/users/tabs" %>
 
+
 <%
     table User.all do
         column :authentications, label: '' do |u|
             u.authentications.map{|a| auth_provider_as_icon a.provider }.join
         end
         column :full_name do |u|
-            if can? "/admin/users/#{u.id}/edit"
-                link_to_modal "/admin/users/#{u.id}/edit", h( u.full_name )
+            if can? "#{u.id}/edit"
+                link_to_modal "#{u.id}/edit", h( u.full_name )
                 # tag :a, 'helllo', 'data-toggle' => 'modal', 'data-target' => '#myModal'
             else
                 h u.full_name
@@ -23,7 +24,11 @@
             u.roles.map{|v| v.to_s}.join(", ")
         end
         column :actions, label: '' do |u|
-            link_to_modal "/admin/users/#{u.id}/delete", icon_delete
+            link_to_modal "#{u.id}/delete", icon_delete
         end
     end
 %>
+
+<div class="table-actions">
+    <%= link_to_modal 'new', icon("fa-plus")+" Create user", class: "btn btn-default" %>
+</div>

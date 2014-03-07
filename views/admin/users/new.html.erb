@@ -1,0 +1,10 @@
+<% page_title "Create user profile" %>
+
+<% form @admin_user_new_form, action: "/admin/users/new" do %>
+<%=     field :full_name %>
+<%=     field :email %>
+<%=     field :roles, value: object.roles.join(", ") %>
+
+<%=     button :cancel, url: '/admin/users/' %>
+<%=     button "Create" %>
+<% end %>
