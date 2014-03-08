@@ -1,0 +1,9 @@
+<% page_title "Edit access rule" %>
+
+<% form @access, action: "/admin/users/access/#{@access.id}/edit" do %>
+<%=     fields :path, :access, :role %>
+<%=     button :cancel, url: '/admin/users/access/' %>
+<%=     button "Save changes" %>
+
+
+<% end %>

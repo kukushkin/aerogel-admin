@@ -1,0 +1,12 @@
+<% page_title "Delete access rule?" %>
+
+<% form @access, action: "/admin/users/access/#{@access.id}/delete" do %>
+<p>
+    Do you really want to delete access rule for <b><%= h object.path %></b>?
+</p>
+<p class="alert alert-warning">
+    <%= icon_warning %> This is permanent and irreversible.
+</p>
+<%=     button :cancel, url: '/admin/users/access/' %>
+<%=     button :danger_submit, label: "Delete access rule" %>
+<% end %>

@@ -4,8 +4,18 @@
 
 <%
     table Access.all do
-        column :path
+        column :path do |row|
+            link_to_modal_if_can "#{row.id}/edit", h( row.path )
+        end
         column :access
         column :role
+        column :actions, label: '' do |row|
+            link_to_modal_if_can "#{row.id}/delete", icon_delete
+        end
     end
 %>
+
+
+<div class="table-actions">
+    <%= link_to_modal_if_can 'new', icon("fa-plus")+" Create access rule", class: "btn btn-default" %>
+</div>

@@ -66,7 +66,7 @@ namespace "/admin/users" do
   #
   route :get, :post, ['/', '/:action', '/:id/:action'] do
     action = params[:action] || 'index'
-    pass unless [:index, :new, :edit, :delete].include? action.to_sym
+    pass if params[:id] and [:roles, :access].include? params[:id].to_sym
     view "admin/users/#{action}"
   end
 

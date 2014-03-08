@@ -25,6 +25,18 @@ def link_to_modal( url, text, opts = {} )
   tag :a, text, opts
 end
 
+# Renders a link to open a modal window with remote content,
+# if this operation is allowed.
+# Renders a plain text otherwise.
+#
+def link_to_modal_if_can( url, text, opts = {} )
+  if can? url
+    link_to_modal url, text, opts
+  else
+    text
+  end
+end
+
 # Creates a <button ...>...</button> tag.
 #
 def button_to( url, text = url, opts = {} )

@@ -1,0 +1,12 @@
+<% page_title "Delete role?" %>
+
+<% form @role, action: "/admin/users/roles/#{@role.id}/delete" do %>
+<p>
+    Do you really want to delete role <b><%= h object.name %></b>?
+</p>
+<p class="alert alert-warning">
+    <%= icon_warning %> This is permanent and irreversible.
+</p>
+<%=     button :cancel, url: '/admin/users/roles/' %>
+<%=     button :danger_submit, label: "Delete role" %>
+<% end %>
