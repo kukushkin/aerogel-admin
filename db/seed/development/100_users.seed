@@ -1,0 +1,45 @@
+model User
+
+find_by :full_name
+
+# Values of attributes listed here will be set even
+# if they exist already in the matching database object.
+#
+# Other attributes in the seed data will be treated as a default value,
+# i.e. they will only be set if the matching database object does not exist
+# or its corresponding attribute is not set.
+#
+# Usage:
+#   force :value
+# or:
+#   force [:value, :description]
+#
+# default is: no fields are forced
+
+#force :value
+
+def create_test_user( name )
+  email = "#{name}@#{name}"
+  {
+    full_name: name,
+    roles: [:user],
+    emails:[{
+      email: email,
+      confirmed: true
+    }],
+    authentications:[{
+      provider: :password,
+      uid: email,
+      email_id: email,
+      password: 'test',
+      password_confirmation: 'test'
+    }]
+  }
+end
+
+user_seeds = []
+100.times do |i|
+  user_seeds << create_test_user( "user#{i}" )
+end
+
+seeds user_seeds

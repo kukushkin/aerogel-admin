@@ -1,10 +1,8 @@
-# Redefines submit behaviour for forms with +data-async+ attribute.
+# Redefines submit behaviour for forms specified by +el+ selector.
 #
 # On submit handler composes and sends AJAX request, renders result
-# in an element specified by form's +data-target+ attribute.
+# in an element specified by form's +target+ attribute.
 #
-
-
 ( exports ? this ).form_data_async_enable = (el, target) ->
     $(el).on 'submit', (event)->
         form = $(this)
