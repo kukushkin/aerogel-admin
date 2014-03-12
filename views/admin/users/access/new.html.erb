@@ -1,13 +1,9 @@
 <% page_title t.aerogel.admin.views.users_access.create.title %>
 
 <% form @access, action: "/admin/users/access/new" do %>
-<%=     fields :path, :access, :role %>
-<div class="btn-group">
-    <button type="button" class="btn btn-default"><%= icon "fa-times" %></button>
-    <button type="button" class="btn btn-default">Read</button>
-    <button type="button" class="btn btn-default">Read & Write</button>
-</div>
-
-<%=     button :cancel, url: '/admin/users/access/' %>
-<%=     button :create %>
+<%=  field :path %>
+<%=  field :access, as: :radio_buttons, values: %w(R RW), labels: ['Read', 'Read & Write'] %>
+<%=  field :role %>
+<%=  button :cancel, url: '/admin/users/access/' %>
+<%=  button :create %>
 <% end %>

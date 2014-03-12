@@ -1,7 +1,9 @@
 <% page_title t.aerogel.admin.views.users_access.edit.title %>
 
 <% form @access, action: "/admin/users/access/#{@access.id}/edit" do %>
-<%=     fields :path, :access, :role %>
-<%=     button :cancel, url: '/admin/users/access/' %>
-<%=     button :save %>
+<%=  field :path %>
+<%=  field :access, as: :radio_buttons, values: %w(R RW), labels: ['Read', 'Read & Write'] %>
+<%=  field :role %>
+<%=  button :cancel, url: '/admin/users/access/' %>
+<%=  button :save %>
 <% end %>
