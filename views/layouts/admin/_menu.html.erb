@@ -30,11 +30,11 @@
           </ul>
         </li>
 
-        <li class="dropdown">
+        <li class="dropdown language-selector">
           <a href="<%= current_url locale: current_locale %>" class="dropdown-toggle" data-toggle="dropdown"><%= current_locale %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <% I18n.available_locales.each do |locale| %>
-              <li <%= locale == current_locale ? 'class="active"' : ''%> >
+              <li <%= locale == current_locale ? 'class="active"' : ''%>>
                 <%= link_to current_url( locale: locale ), locale.to_s %>
               </li>
             <% end %>
