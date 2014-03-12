@@ -13,7 +13,7 @@ namespace "/admin/users/access" do
   post "/new" do
     @access = Access.new( params[:access] )
     pass unless @access.save
-    redirect '/admin/users/access/', notice: "Access rule for '#{@access.path}' created"
+    redirect '/admin/users/access/', notice: t.aerogel.admin.actions.users_access.created( name: @access.path )
   end
 
   get "/:id/edit" do
@@ -24,9 +24,10 @@ namespace "/admin/users/access" do
   post "/:id/edit" do
     @access = Access.find( params[:id] ) or halt 404
     if @access.update_attributes params[:access].except( :path_matcher )
-      redirect '/admin/users/access/', notice: "Access rule saved"
+      redirect '/admin/users/access/', notice: t.aerogel.admin.actions.users_access.updated( name: @access.path )
     end
-    flash.now[:error] = "Failed to update access rule"
+    flash.now[:error] = t.aerogel.db.errors.failed_to_save name: Access.model_name.human,
+      errors: @access.errors.full_messages.join(", ")
     pass
   end
 
@@ -38,7 +39,7 @@ namespace "/admin/users/access" do
   post "/:id/delete" do
     @access = Access.find( params[:id] ) or halt 404
     @access.destroy
-    redirect '/admin/users/access/', notice: "Access rule for '#{@access.path}' deleted"
+    redirect '/admin/users/access/', notice: t.aerogel.admin.actions.users_access.deleted( name: @access.path )
     pass
   end
 

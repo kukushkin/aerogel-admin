@@ -1,12 +1,12 @@
-<% page_title "Delete user?" %>
+<% page_title t.aerogel.admin.views.users.delete.title %>
 
 <% form @user, action: "/admin/users/#{@user.id}/delete" do %>
-<p>
-    Do you really want to delete <b><%= h object.full_name %></b>?
-</p>
+
+<%= t.aerogel.admin.views.users.delete.text name: h( object.full_name ) %>
+
 <p class="alert alert-warning">
-    <%= icon_warning %> This is permanent and irreversible.
+    <%= icon_warning %> <%= t.aerogel.admin.warning_permanent_action %>
 </p>
 <%=     button :cancel, url: '/admin/users/' %>
-<%=     button :danger_submit, label: "Delete user" %>
+<%=     button :danger_submit, label: t.aerogel.admin.actions.users.delete %>
 <% end %>

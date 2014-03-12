@@ -1,4 +1,4 @@
-<% page_title "Create user profile" %>
+<% page_title t.aerogel.admin.views.users.create.title %>
 
 <% form @admin_user_new_form, action: "/admin/users/new" do %>
 <%=     field :full_name %>
@@ -6,5 +6,5 @@
 <%=     field :roles, value: object.roles.join(", ") %>
 
 <%=     button :cancel, url: '/admin/users/' %>
-<%=     button "Create" %>
+<%=     button :create %>
 <% end %>

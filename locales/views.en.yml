@@ -1,0 +1,46 @@
+en:
+    aerogel:
+        admin:
+            views:
+                dashboard:
+                    title: Dashboard
+                    text: |
+                        <p>
+                            #dashboard
+                        </p>
+
+                users:
+                    create:
+                        title: Create new user
+                    edit:
+                        title: Edit user
+                    delete:
+                        title: Delete user?
+                        text: |
+                            <p>
+                                Do you really want to delete <b>%{name}</b>?
+                            </p>
+
+                users_roles:
+                    create:
+                        title: Create new role
+                    edit:
+                        title: Edit role
+                    delete:
+                        title: Delete role?
+                        text: |
+                            <p>
+                                Do you really want to delete <b>%{name}</b>?
+                            </p>
+
+                users_access:
+                    create:
+                        title: Create new access rule
+                    edit:
+                        title: Edit access rule
+                    delete:
+                        title: Delete access rule?
+                        text: |
+                            <p>
+                                Do you really want to delete <b>%{name}</b>?
+                            </p>

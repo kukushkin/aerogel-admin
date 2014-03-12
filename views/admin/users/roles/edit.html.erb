@@ -1,9 +1,9 @@
-<% page_title "Edit role" %>
+<% page_title t.aerogel.admin.views.users_roles.edit.title %>
 
 <% form @role, action: "/admin/users/roles/#{@role.id}/edit" do %>
 <%=     fields %>
 <%=     button :cancel, url: '/admin/users/roles/' %>
-<%=     button "Save changes" %>
+<%=     button :save %>
 
 
 <% end %>

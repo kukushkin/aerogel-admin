@@ -1,4 +1,4 @@
-<% page_title "Edit user profile" %>
+<% page_title t.aerogel.admin.views.users.edit.title %>
 
 <% form @user, action: "/admin/users/#{@user.id}/edit" do %>
 <%=     field :full_name %>
@@ -8,12 +8,15 @@
                 user_email_confirmed_as_label( e )
             end
             column :confirmation_link, label: '' do |e|
-                e.confirmed ? '' : link_to("#request_email_confirmation", "Send confirmation request")
+                e.confirmed ? '' : link_to(
+                    "#request_email_confirmation",
+                    t.aerogel.admin.actions.user_email.request_confirmation
+                )
             end
         end
 %>
 <%      table object.authentications do
-            column :provider, label: "Authentication method" do |a|
+            column :provider, label: object.model_name.human do |a|
                 auth_provider_as_icon( a.provider )+" #{auth_provider_as_text a.provider}"
             end
             column :uid
@@ -22,13 +25,22 @@
 <%=     field :roles, value: object.roles.join(", ") %>
 
 <p>
-    <em>Created @ <%= object.created_at || 'never' %></em><br/>
-    <em>Updated @ <%= object.updated_at || 'never'%></em><br/>
-    <em>Authenticated @ <%= object.authenticated_at || 'never' %></em><br/>
+    <em>
+        <%= User.human_attribute_name :created_at %>
+        <%= l object.created_at, default: :never, format: :short %>
+    </em><br/>
+    <em>
+        <%= User.human_attribute_name :updated_at %>
+        <%= l object.updated_at, default: :never, format: :short %>
+    </em><br/>
+    <em>
+        <%= User.human_attribute_name :authenticated_at %>
+        <%= l object.authenticated_at, default: :never, format: :short %>
+    </em><br/>
 </p>
 
 <%=     button :cancel, url: '/admin/users/' %>
-<%=     button "Save changes" %>
+<%=     button :save %>
 
 
 <% end %>

@@ -1,6 +1,6 @@
 namespace "/admin/pages" do
 
-  admin_menu "/admin/pages/", icon: 'fa-file', label: 'Pages', priority: 10
+  admin_menu "/admin/pages/", icon: 'fa-file', label: :'aerogel.admin.panes.pages', priority: 10
 
   get "/" do
     pass

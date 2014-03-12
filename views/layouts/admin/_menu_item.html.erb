@@ -1,5 +1,5 @@
 <li <%= request.path_info.starts_with?(menu_item.url) ? 'class="active"' : '' %> >
     <%= link_to menu_item.url,
-        ( menu_item.icon ? icon(menu_item.icon)+" "+menu_item.label : menu_item.label )
+        ( menu_item.icon ? icon(menu_item.icon)+" "+menu_item.human_label : menu_item.human_label )
     %>
 </li>

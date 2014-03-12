@@ -1,0 +1,8 @@
+en:
+    mongoid:
+        models:
+            user_new_form: New user form
+
+        attributes:
+            'admin/user_new_form':
+                roles: Roles

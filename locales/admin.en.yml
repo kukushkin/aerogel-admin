@@ -1,0 +1,15 @@
+en:
+    aerogel:
+        admin:
+            homepage: Home
+            panes:
+                pages: Pages
+                users: Users
+                users_roles: Roles
+                users_access: Access rules
+
+            decorators:
+                confirmed: confirmed
+                not_confirmed: not confirmed
+
+            warning_permanent_action: This is permanent action.

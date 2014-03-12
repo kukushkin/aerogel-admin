@@ -1,0 +1,15 @@
+ru:
+    aerogel:
+        admin:
+            homepage: Главная страница
+            panes:
+                pages: Страницы
+                users: Пользователи
+                users_roles: Роли
+                users_access: Правила доступа
+
+            decorators:
+                confirmed: подтверждён
+                not_confirmed: не подтверждён
+
+            warning_permanent_action: Это действие необратимо.

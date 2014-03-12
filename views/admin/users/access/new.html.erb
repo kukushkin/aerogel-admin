@@ -1,7 +1,13 @@
-<% page_title 'Create new access rule' %>
+<% page_title t.aerogel.admin.views.users_access.create.title %>
 
 <% form @access, action: "/admin/users/access/new" do %>
 <%=     fields :path, :access, :role %>
+<div class="btn-group">
+    <button type="button" class="btn btn-default"><%= icon "fa-times" %></button>
+    <button type="button" class="btn btn-default">Read</button>
+    <button type="button" class="btn btn-default">Read & Write</button>
+</div>
+
 <%=     button :cancel, url: '/admin/users/access/' %>
-<%=     button "Create access rule" %>
+<%=     button :create %>
 <% end %>

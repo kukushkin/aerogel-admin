@@ -27,7 +27,7 @@ module Aerogel::Admin
     end
 
     def column( *args, &block )
-      self.columns << Column.new( *args, &block )
+      self.columns << Column.new( self, *args, &block )
       nil
     end
 
@@ -43,13 +43,28 @@ module Aerogel::Admin
 
     class Column
 
-      attr_accessor :field, :label, :options, :block
+      attr_accessor :table, :field, :label, :options, :block
 
-      def initialize( field, options = {}, &block )
+      def initialize( table, field, options = {}, &block )
+        self.table = table
         self.field = field
         self.options = options
         self.block = block
-        self.label = self.options[:label] || self.field.to_s.humanize
+        self.label = self.options[:label] || self.field.to_sym
+      end
+
+      def human_label
+        if label.is_a? Symbol
+          if table.object.respond_to? :human_attribute_name
+            table.object.human_attribute_name label, default: label
+          else
+            I18n.t label
+          end
+        elsif label.is_a? String
+          label
+        else
+          label.to_s.humanize
+        end
       end
 
     end # class Column

@@ -1,0 +1,8 @@
+ru:
+    mongoid:
+        models:
+            user_new_form: Форма создания пользователя
+
+        attributes:
+            'admin/user_new_form':
+                roles: Роли

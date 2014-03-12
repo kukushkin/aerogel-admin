@@ -6,20 +6,20 @@ module Admin
     field :email, type: String
     field :roles, type: Array, default: [:user]
 
-    validates_presence_of :full_name, :email
-    validates_format_of :email, with: /@/, message: 'invalid email'
+    validates_presence_of :full_name, :email, :roles
+    validates_format_of :email, with: /@/, message: :invalid_format
 
     validate do |record|
       # validate email
       if User.elem_match( :authentications => { :provider => :password, :uid => record.email } ).count > 0
-        record.errors.add :email, 'is already in use'
+        record.errors.add :email, :taken
       elsif User.elem_match( :emails => { :email => record.email } ).count > 0
-        record.errors.add :email, 'is already in use'
+        record.errors.add :email, :taken
       end
       # validate roles
       if record.roles_changed?
         unless Role.slugs.contains? record.roles
-          record.errors.add :roles, 'contains invalid roles'
+          record.errors.add :roles, :invalid_roles
         end
       end
 

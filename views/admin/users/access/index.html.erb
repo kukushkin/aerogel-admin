@@ -1,4 +1,4 @@
-<% page_title "Access" %>
+<% page_title t.aerogel.admin.panes.users_access %>
 
 <%= partial "admin/users/tabs" %>
 
@@ -17,5 +17,7 @@
 
 
 <div class="table-actions">
-    <%= link_to_modal_if_can 'new', icon("fa-plus")+" Create access rule", class: "btn btn-default" %>
+    <%= link_to_modal_if_can 'new',
+        icon("fa-plus")+" "+t.aerogel.admin.actions.users_access.create.to_s, class: "btn btn-default"
+    %>
 </div>

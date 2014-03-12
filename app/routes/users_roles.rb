@@ -12,7 +12,7 @@ namespace "/admin/users/roles" do
   post "/new" do
     @role = Role.new( params[:role] )
     pass unless @role.save
-    redirect '/admin/users/roles/', notice: "Role '#{@role.name}' created"
+    redirect '/admin/users/roles/', notice: t.aerogel.admin.actions.users_roles.created( name: @role.name )
   end
 
   get "/:id/edit" do
@@ -23,9 +23,10 @@ namespace "/admin/users/roles" do
   post "/:id/edit" do
     @role = Role.find( params[:id] ) or halt 404
     if @role.update_attributes params[:role]
-      redirect '/admin/users/roles/', notice: "Role saved"
+      redirect '/admin/users/roles/', notice: t.aerogel.admin.actions.users_roles.updated( name: @role.name )
     end
-    flash.now[:error] = "Failed to update role"
+    flash.now[:error] = t.aerogel.db.errors.failed_to_save name: Role.model_name.human,
+      errors: @role.errors.full_messages.join(", ")
     pass
   end
 
@@ -37,9 +38,10 @@ namespace "/admin/users/roles" do
   post "/:id/delete" do
     @role = Role.find( params[:id] ) or halt 404
     @role.destroy
-    redirect '/admin/users/roles/', notice: "Role '#{@role.name}' deleted"
+    redirect '/admin/users/roles/', notice: t.aerogel.admin.actions.users_roles.deleted( name: @role.name )
     pass
   end
+
   #
   # Common User/Roles controller routes
   #

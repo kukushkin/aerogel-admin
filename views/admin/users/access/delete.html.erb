@@ -1,12 +1,12 @@
-<% page_title "Delete access rule?" %>
+<% page_title t.aerogel.admin.views.users_access.delete.title %>
 
 <% form @access, action: "/admin/users/access/#{@access.id}/delete" do %>
-<p>
-    Do you really want to delete access rule for <b><%= h object.path %></b>?
-</p>
+
+<%= t.aerogel.admin.views.users_access.delete.text name: "#{object.path}:#{object.access}:#{object.role}" %>
+
 <p class="alert alert-warning">
-    <%= icon_warning %> This is permanent and irreversible.
+    <%= icon_warning %> <%= t.aerogel.admin.warning_permanent_action %>
 </p>
 <%=     button :cancel, url: '/admin/users/access/' %>
-<%=     button :danger_submit, label: "Delete access rule" %>
+<%=     button :danger_submit, label: t.aerogel.admin.actions.users_access.delete %>
 <% end %>

@@ -50,6 +50,14 @@ module Aerogel::Admin
         self.block = block
       end
 
+      def human_label
+        if label.is_a? Symbol
+          I18n.t label
+        else
+          label.humanize
+        end
+      end
+
     end # class Tab
 
   end # class TabsBuilder

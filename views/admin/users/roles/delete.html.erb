@@ -1,12 +1,12 @@
-<% page_title "Delete role?" %>
+<% page_title t.aerogel.admin.views.users_roles.delete.title %>
 
 <% form @role, action: "/admin/users/roles/#{@role.id}/delete" do %>
-<p>
-    Do you really want to delete role <b><%= h object.name %></b>?
-</p>
+
+<%= t.aerogel.admin.views.users_roles.delete.text name: h( object.name ) %>
+
 <p class="alert alert-warning">
-    <%= icon_warning %> This is permanent and irreversible.
+    <%= icon_warning %> <%= t.aerogel.admin.warning_permanent_action %>
 </p>
 <%=     button :cancel, url: '/admin/users/roles/' %>
-<%=     button :danger_submit, label: "Delete role" %>
+<%=     button :danger_submit, label: t.aerogel.admin.actions.users_roles.delete %>
 <% end %>

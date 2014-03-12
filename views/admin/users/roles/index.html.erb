@@ -1,10 +1,10 @@
-<% page_title "Roles" %>
+<% page_title t.aerogel.admin.panes.users_roles %>
 
 <%= partial "admin/users/tabs" %>
 
 <%
     table Role.all do
-        column :slug, label: "ID" do |row|
+        column :slug do |row|
             link_to_modal_if_can "#{row.id}/edit", row.slug.to_s
         end
         column :name
@@ -15,5 +15,7 @@
 %>
 
 <div class="table-actions">
-    <%= link_to_modal_if_can 'new', icon("fa-plus")+" Create role", class: "btn btn-default" %>
+    <%= link_to_modal_if_can 'new',
+        icon("fa-plus")+" "+t.aerogel.admin.actions.users_roles.create.to_s, class: "btn btn-default"
+    %>
 </div>

@@ -1,6 +1,6 @@
 namespace "/admin/users" do
 
-  admin_menu "/admin/users/", icon: 'fa-users', label: 'Users', priority: 20
+  admin_menu "/admin/users/", icon: 'fa-users', label: :'aerogel.admin.panes.users', priority: 20
 
 
   before do
@@ -21,14 +21,15 @@ namespace "/admin/users" do
     pass unless @admin_user_new_form.valid?
     user = User.create_from_admin_user_new_form @admin_user_new_form
     unless user.save
-      flash[:error] = "Failed to save User: #{user.errors.inspect}"
+      flash[:error] = t.aerogel.db.errors.failed_to_save name: User.model_name.human,
+        errors: user.errors.full_messages.join(", ")
       pass
     end
     user.request_activation!
     email 'user/account_activation', user
     authentication = user.request_password_reset! @admin_user_new_form.email
     email 'user/password_reset', authentication
-    redirect '/admin/users/', notice: "User '#{user.full_name}' created"
+    redirect '/admin/users/', notice: t.aerogel.admin.actions.users.created( name: h( user.full_name ) )
   end
 
   get "/:id/edit" do
@@ -39,9 +40,11 @@ namespace "/admin/users" do
   post "/:id/edit" do
     @user = User.find( params[:id] ) or halt 404
     if @user.update_attributes params[:user].except( :emails, :authentications )
-      redirect '/admin/users/', notice: "User details saved"
+      redirect '/admin/users/', notice: t.aerogel.admin.actions.users.updated( name: h( @user.full_name ) )
     end
-    flash.now[:error] = "Failed to update user profile"
+    flash.now[:error] = t.aerogel.db.errors.failed_to_save( name: h( @user.full_name ),
+      errors: @user.errors.full_messages.join(", ")
+    )
     pass
   end
 
@@ -53,10 +56,10 @@ namespace "/admin/users" do
   post "/:id/delete" do
     @user = User.find( params[:id] ) or halt 404
     if current_user == @user
-      redirect '/admin/users/', error: "No, you cannot delete self"
+      redirect '/admin/users/', error: t.aerogel.admin.actions.users.failed_to_delete_self
     else
       @user.destroy
-      redirect '/admin/users/', notice: "User '#{h @user.full_name}' deleted"
+      redirect '/admin/users/', notice: t.aerogel.admin.actions.users.deleted( name: h(@user.full_name)  )
     end
     pass
   end

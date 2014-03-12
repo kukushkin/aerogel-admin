@@ -1,0 +1,27 @@
+en:
+    aerogel:
+        admin:
+            actions:
+                delete: Delete
+                logout: Log out
+                view_current_user: Account details
+
+                users:
+                    create: Create new user
+                    delete: Delete user
+                    created: User %{name} created
+                    updated: User %{name} updated
+                    deleted: User %{name} deleted
+                    failed_to_delete_self: "No, you cannot delete self"
+                users_roles:
+                    create: Create new role
+                    delete: Delete role
+                    created: Role %{name} created
+                    updated: Role %{name} updated
+                    deleted: Role %{name} deleted
+                users_access:
+                    create: Create new access rule
+                    delete: Delete access rule
+                    created: Access rule %{name} created
+                    updated: Åccess rule %{name} updated
+                    deleted: Access rule %{name} deleted

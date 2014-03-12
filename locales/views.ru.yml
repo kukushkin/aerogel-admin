@@ -1,0 +1,46 @@
+ru:
+    aerogel:
+        admin:
+            views:
+                dashboard:
+                    title: Панель управления
+                    text: |
+                        <p>
+                            #dashboard по-русски
+                        </p>
+
+                users:
+                    create:
+                        title: Создать нового пользователя
+                    edit:
+                        title: Редактировать пользователя
+                    delete:
+                        title: Удалить пользователя?
+                        text: |
+                            <p>
+                                Вы действительно хотите удалить <b>%{name}</b>?
+                            </p>
+
+                users_roles:
+                    create:
+                        title: Создать новую роль
+                    edit:
+                        title: Редактировать роль
+                    delete:
+                        title: Удалить роль?
+                        text: |
+                            <p>
+                                Вы действительно хотите удалить <b>%{name}</b>?
+                            </p>
+
+                users_access:
+                    create:
+                        title: Создать новое правило доступа
+                    edit:
+                        title: Редактировать правило доступа
+                    delete:
+                        title: Удалить правило доступа?
+                        text: |
+                            <p>
+                                Вы действительно хотите удалить <b>%{name}</b>?
+                            </p>

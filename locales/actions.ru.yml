@@ -1,0 +1,28 @@
+ru:
+    aerogel:
+        admin:
+            actions:
+                delete: Удалить
+                logout: Выйти
+                view_current_user: Учётная запись
+
+                users:
+                    create: Создать нового пользователя
+                    delete: Удалить пользователя
+                    created: Пользователь <b>%{name}</b> создан
+                    updated: Пользователь <b>%{name}</b> обновлён
+                    deleted: Пользователь <b>%{name}</b> удалён
+                    failed_to_delete_self: "Нет, вы не можете удалить самого себя"
+                users_roles:
+                    create: Создать новую роль
+                    delete: Удалить роль
+                    created: Роль <b>%{name}</b> создана
+                    updated: Роль <b>%{name}</b> обновлена
+                    deleted: Роль <b>%{name}</b> удалена
+                users_access:
+                    create: Создать новое правило доступа
+                    delete: Удалить правило доступа
+                    created: Правило доступа <b>%{name}</b> создано
+                    updated: Правило доступа <b>%{name}</b> обновлено
+                    deleted: Правило доступа <b>%{name}</b> удалено
+

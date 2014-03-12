@@ -1,9 +1,7 @@
-<% page_title "Edit access rule" %>
+<% page_title t.aerogel.admin.views.users_access.edit.title %>
 
 <% form @access, action: "/admin/users/access/#{@access.id}/edit" do %>
 <%=     fields :path, :access, :role %>
 <%=     button :cancel, url: '/admin/users/access/' %>
-<%=     button "Save changes" %>
-
-
+<%=     button :save %>
 <% end %>

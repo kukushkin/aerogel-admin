@@ -1,4 +1,4 @@
-<% page_title "Users" %>
+<% page_title t.aerogel.admin.panes.users %>
 
 <%= partial "admin/users/tabs" %>
 
@@ -25,5 +25,7 @@
 %>
 
 <div class="table-actions">
-    <%= link_to_modal_if_can 'new', icon("fa-plus")+" Create user", class: "btn btn-default" %>
+    <%= link_to_modal_if_can 'new',
+        icon("fa-plus")+" "+t.aerogel.admin.actions.users.create.to_s, class: "btn btn-default"
+    %>
 </div>

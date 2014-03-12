@@ -21,6 +21,14 @@ module Aerogel::Admin
       def self.create( url, opts = {} )
         Menu.instance.items << self.new( url, opts )
       end
+
+      def human_label
+        if label.is_a? Symbol
+          I18n.t label
+        else
+          label.humanize
+        end
+      end
     end # class Item
   end # class Menu
 end # module Aerogel::Admin

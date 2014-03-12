@@ -2,16 +2,16 @@
 #
 def user_email_confirmed_as_icon( email )
   email.confirmed ?
-    icon( "glyphicon-ok-sign", title: "confirmed", style: "color: green" ) :
-    icon( "glyphicon-question-sign", title: "not confirmed" )
+    icon( "glyphicon-ok-sign", title: t.aerogel.admin.decorators.confirmed, style: "color: green" ) :
+    icon( "glyphicon-question-sign", title: t.aerogel.admin.decorators.not_confirmed )
 end
 
 # Renders UserEmail.confirmed attribute as label
 #
 def user_email_confirmed_as_label( email )
   email.confirmed ?
-      "<span class='label label-success'>confirmed</span>" :
-      "<span class='label label-default'>not confirmed</span>"
+      "<span class='label label-success'>#{t.aerogel.admin.decorators.confirmed}</span>" :
+      "<span class='label label-default'>#{t.aerogel.admin.decorators.not_confirmed}</span>"
 end
 
 # Renders Authentication provier as icon.
