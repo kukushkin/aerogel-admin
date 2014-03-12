@@ -5,6 +5,7 @@ namespace "/admin/users" do
 
   before do
     layout "admin/modal" if request.xhr?
+    sleep 3 if request.xhr?
   end
 
   get "/" do

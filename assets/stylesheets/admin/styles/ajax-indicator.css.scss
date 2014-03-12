@@ -10,15 +10,17 @@
     // height: 50%;
 
     .ajax-indicator-inner {
-        font-size: 36px;
-        height: 100px;
-        width: 200px;
+        // font-size: 36px;
+        height: 72px;
+        width: 72px;
         background: #111;
-        opacity: 0.5;
+        opacity: 0.7;
         color: white;
         text-align: center;
+        border-radius: 5px 5px 5px 5px;
         @extend .center-absolutely;
         // top: 50%;
+
     }
 }
 

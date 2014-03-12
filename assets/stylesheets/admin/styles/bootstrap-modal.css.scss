@@ -18,4 +18,7 @@ $modal-vertical-pos: 50% !default;
 }
 .modal-content {
 //    margin-top:-$modal-vertical-pos;
+
+    // FIXME get rid of border around empty modal during loading of remote content
+    border: none;
 }

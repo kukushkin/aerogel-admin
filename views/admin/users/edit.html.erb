@@ -10,7 +10,7 @@
             column :confirmation_link, label: '' do |e|
                 e.confirmed ? '' : link_to(
                     "#request_email_confirmation",
-                    t.aerogel.admin.actions.user_email.request_confirmation
+                    t.aerogel.admin.actions.user_email.request_confirmation.to_s
                 )
             end
         end
