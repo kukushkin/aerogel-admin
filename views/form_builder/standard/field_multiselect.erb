@@ -6,7 +6,7 @@
 <!-- div class="input-group" -->
     <select id="<%= field.css_id %>" name="<%= field.html_name %>[]" multiple="multiple" class="form-control selectize">
     <!-- <%= field.value %> -->
-    <% field.options[:from].all.each do |option| %>
+    <% field.options[:from].each do |option| %>
         <option value="<%= h option[field.options[:values]] %>" <%= field.value.include?( option[field.options[:values]] ) ? 'selected="selected"' : '' %>><%= h option[field.options[:labels]] %></option>
     <% end %>
     </select>

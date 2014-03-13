@@ -9,7 +9,7 @@
     <% unless field.value.present? %>
         <option value></option>
     <% end %>
-    <% field.options[:from].all.each do |option| %>
+    <% field.options[:from].each do |option| %>
         <option value="<%= h option[field.options[:values]] %>" <%= ( field.value == option[field.options[:values]] ) ? 'selected="selected"' : '' %>><%= h option[field.options[:labels]] %></option>
     <% end %>
     </select>
