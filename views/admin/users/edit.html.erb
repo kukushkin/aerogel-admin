@@ -22,7 +22,7 @@
             column :uid
         end
 %>
-<%=     field :roles, value: object.roles.join(", ") %>
+<%=     field :roles, as: :multiselect, from: Role, values: :slug, labels: :name %>
 
 <p>
     <em>

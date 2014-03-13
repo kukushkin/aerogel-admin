@@ -1,6 +1,9 @@
 #= require bootstrap
-#= require_tree ./admin
 #= require utils/bootstrap-modal-reload
 #= require utils/ajax-watcher
 #= require utils/ajax-spinner
+#= require utils/on-future-elements
 #= require vendor/spin
+#= require selectize
+
+#= require_tree ./admin

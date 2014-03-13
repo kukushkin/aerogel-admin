@@ -5,7 +5,7 @@ namespace "/admin/users" do
 
   before do
     layout "admin/modal" if request.xhr?
-    sleep 3 if request.xhr?
+    # sleep 3 if request.xhr?
   end
 
   get "/" do
@@ -18,6 +18,7 @@ namespace "/admin/users" do
   end
 
   post "/new" do
+    params[:admin_user_new_form][:roles].map!(&:to_sym)
     @admin_user_new_form = ::Admin::UserNewForm.new( params[:admin_user_new_form] )
     pass unless @admin_user_new_form.valid?
     user = User.create_from_admin_user_new_form @admin_user_new_form
@@ -40,6 +41,7 @@ namespace "/admin/users" do
 
   post "/:id/edit" do
     @user = User.find( params[:id] ) or halt 404
+    params[:user][:roles].map!(&:to_sym)
     if @user.update_attributes params[:user].except( :emails, :authentications )
       redirect '/admin/users/', notice: t.aerogel.admin.actions.users.updated( name: h( @user.full_name ) )
     end

@@ -3,7 +3,8 @@
 <% form @admin_user_new_form, action: "/admin/users/new" do %>
 <%=     field :full_name %>
 <%=     field :email %>
-<%=     field :roles, value: object.roles.join(", ") %>
+<%=     field :roles, as: :multiselect, from: Role, values: :slug, labels: :name %>
+
 
 <%=     button :cancel, url: '/admin/users/' %>
 <%=     button :create %>
