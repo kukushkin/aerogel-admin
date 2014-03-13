@@ -3,7 +3,7 @@
 <% form @access, action: "/admin/users/access/new" do %>
 <%=  field :path %>
 <%=  field :access, as: :radio_buttons, values: %w(R RW), labels: ['Read', 'Read & Write'] %>
-<%=  field :role %>
+<%=  field :role, as: :select, from: Role, values: :slug, labels: :name %>
 <%=  button :cancel, url: '/admin/users/access/' %>
 <%=  button :create %>
 <% end %>
