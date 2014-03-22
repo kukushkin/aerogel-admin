@@ -2,6 +2,8 @@
 // This is the place for customizing your bootstrap installation
 //
 
+$component-active-bg: $item-selected-bg;
+$component-active-fg: $item-selected-fg;
 
 // modals
 $modal-title-padding: 7px;
@@ -19,4 +21,3 @@ $modal-radius: 6px;
 $navbar-height: $header-height;
 $navbar-inverse-bg: $top-menu-bg;
 $navbar-inverse-link-color: $top-menu-fg;
-// $navbar-inverse-link-hover-color: lighten($top-menu-fg, 20%);

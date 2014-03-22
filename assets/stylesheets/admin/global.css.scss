@@ -1,7 +1,14 @@
 /*
  * Global styles
  */
-$link_color: #9ac2e7;
+$body-bg: white;
+$text-color: black;
+$link-color: #9ac2e7;
+$link-hover-color: darken($link-color, 15%);
+$item-selected-bg: #428bca;
+$item-selected-fg: white;
+$item-hover-bg: #f5f5f5;
+$item-hover-fg: inherit;
 
 /*
  * Grid layout main column width
@@ -23,3 +30,13 @@ $footer-bg: #4a484c;
 $footer-fg: #848484;
 $footer-link-color: #9ac2e7;
 $footer-height: 50px;
+
+
+// Smart Tree Table settings
+$stt-selected-bg: $item-selected-bg;
+$stt-selected-fg: $item-selected-fg;
+$stt-hover-bg: $item-hover-bg;
+$stt-hover-fg: $item-hover-fg;
+$stt-drag-over-bg: $item-hover-bg;
+$stt-drag-over-fg: $item-hover-fg;
+

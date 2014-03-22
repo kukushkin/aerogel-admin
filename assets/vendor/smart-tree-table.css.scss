@@ -3,5 +3,40 @@
 // $stt-selected-bg = ...
 // $stt-selected-fg = ...
 
+$stt-hover-fg: #000 !default;
+$stt-hover-bg: #eee !default;
+$stt-hover-cursor: pointer !default;
 
-@import "smart-tree-table/*";
+$stt-selected-fg: inherit !default;
+$stt-selected-bg: #5e96de !default;
+
+$stt-drag-helper-bg: #fff !default;
+$stt-drag-helper-fg: #000 !default;
+$stt-drag-helper-shadow: 5px 5px 5px #777 !default;
+$stt-drag-helper-border: 1px solid #ccc !default;
+$stt-drag-helper-zindex: 100 !default;
+
+$stt-drag-over-bg: #eee !default;
+$stt-drag-over-fg: inherit !default;
+
+$stt-drag-source-bg: #e9e9e9 !default;
+$stt-drag-source-fg: inherit !default;
+
+$stt-drop-target-overlay-border-width: 3px !default;
+$stt-drop-target-overlay-border-color: black !default;
+$stt-drop-target-overlay-border-style: solid !default;
+
+$stt-drop-target-overlay-before-border-style: $stt-drop-target-overlay-border-style none none none !default;
+$stt-drop-target-overlay-before-border-width: $stt-drop-target-overlay-border-width !default;
+$stt-drop-target-overlay-before-border-color: $stt-drop-target-overlay-border-color !default;
+
+$stt-drop-target-overlay-into-border-style: $stt-drop-target-overlay-border-style !default;
+$stt-drop-target-overlay-into-border-width: $stt-drop-target-overlay-border-width !default;
+$stt-drop-target-overlay-into-border-color: $stt-drop-target-overlay-border-color !default;
+
+$stt-drop-target-overlay-after-border-style: none none $stt-drop-target-overlay-border-style none !default;
+$stt-drop-target-overlay-after-border-width: $stt-drop-target-overlay-border-width !default;
+$stt-drop-target-overlay-after-border-color: $stt-drop-target-overlay-border-color !default;
+
+
+@import "smart-tree-table/smart-tree-table";

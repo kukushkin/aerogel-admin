@@ -2,11 +2,13 @@
 .smart-tree-table tbody {
 
     tr:hover {
-        background: #eee;
-        cursor: pointer;
+        background: $stt-hover-bg;
+        color: $stt-hover-fg;
+        cursor: $stt-hover-cursor;
     }
     tr.selected {
-        background: #5e96de;
+        background: $stt-selected-bg;
+        color: $stt-selected-fg;
     }
 
     tr td span.indenter {
@@ -15,31 +17,38 @@
     }
 
     tr.drag-helper {
-        background: #fff;
-        box-shadow: 5px 5px 5px #777;
-        border: 1px solid #ccc;
-        z-index: 100;
+        background: $stt-drag-helper-bg;
+        box-shadow: $stt-drag-helper-shadow;
+        border: $stt-drag-helper-border;
+        z-index: $stt-drag-helper-zindex;
     }
 
     tr.drag-over {
-        background: #eee;
+        background: $stt-drag-over-bg;
+        color: $stt-drag-over-fg;
     }
 
     tr.drag-source {
-        background: #e9e9e9;
-        color: #ccc;
+        background: $stt-drag-source-bg;
+        color: $stt-drag-source-fg;
     }
 
     .drop-target-overlay {
         // border: 1px solid green;
     }
     .drop-target-overlay.before {
-        border-top: 3px solid black;
-    }
-    .drop-target-overlay.after {
-        border-bottom: 3px solid black;
+        border-style: $stt-drop-target-overlay-before-border-style;
+        border-width: $stt-drop-target-overlay-before-border-width;
+        border-color: $stt-drop-target-overlay-before-border-color;
     }
     .drop-target-overlay.into {
-        border-left: 3px solid black;
+        border-style: $stt-drop-target-overlay-into-border-style;
+        border-width: $stt-drop-target-overlay-into-border-width;
+        border-color: $stt-drop-target-overlay-into-border-color;
+    }
+    .drop-target-overlay.after {
+        border-style: $stt-drop-target-overlay-after-border-style;
+        border-width: $stt-drop-target-overlay-after-border-width;
+        border-color: $stt-drop-target-overlay-after-border-color;
     }
 }

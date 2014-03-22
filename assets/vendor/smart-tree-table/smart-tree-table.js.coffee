@@ -27,7 +27,7 @@ class @SmartTreeTable
                 expanded: ""
                 collapsed: ""
         dragAndDrop:
-            enabled: true
+            enabled: false
             handle: null # or selector to drag-n-drop handle
             helper: null # or function returning helper element
             helperClass: 'drag-helper'
@@ -158,6 +158,13 @@ class @SmartTreeTable
         return unless id?
         @selected_row = @rows[id]
         @selected_row.selected = true
+        # if parent is collapsed, expand all until first expanded ancestor
+        if @selected_row.parent_id?
+            parent_id = @selected_row.parent_id
+            while parent_id? && not @rows[parent_id].expanded
+                @expand parent_id
+                parent_id = @rows[parent_id].parent_id
+
         if @settings.on_select?
             @settings.on_select id, @selected_row.el
 

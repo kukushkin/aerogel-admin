@@ -90,6 +90,27 @@ debug message
     $(function(){
         tree = new SmartTreeTable('#tree', {
           column: 3,
+          on_select: tree_item_selected,
+          prefix: {
+            branch: {
+              expanded: '<i class="prefix-expanded fa fa-caret-down"></i>',
+              collapsed: '<i class="prefix-collapsed fa fa-caret-right"></i>',
+            }
+          },
+          dragAndDrop: {
+            dropTarget: {
+              overlay: {
+                before: '<i class="fa fa-long-arrow-up"></i>',
+                into: '<i class="fa fa-long-arrow-right"></i>',
+                after: '<i class="fa fa-long-arrow-down"></i>'
+              }
+            }
+          }
         });
+        tree.select( 6 );
     });
+
+function tree_item_selected( id ) {
+  $("#debug").text("selected: "+id);
+}
 </script>
