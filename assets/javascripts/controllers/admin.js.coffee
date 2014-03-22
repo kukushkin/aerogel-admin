@@ -4,6 +4,8 @@
 #= require utils/ajax-spinner
 #= require utils/on-future-elements
 #= require vendor/spin
+#= require smart-tree-table
 #= require selectize
+
 
 #= require_tree ./admin

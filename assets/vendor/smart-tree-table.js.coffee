@@ -1,0 +1,1 @@
+#= require ./smart-tree-table/smart-tree-table

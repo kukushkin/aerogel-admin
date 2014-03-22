@@ -1,12 +1,95 @@
-<% page_title "Pages" %>
+<% page_title t.aerogel.admin.panes.pages %>
 
-<p>#pages</p>
+<div id='debug'>
+debug message
+</div>
 
-<select class="form-control selectize">
-<option value="1">One</option>
-<option value="2">Two</option>
-<option value="3">Three</option>
-<option value="4">Four</option>
-<option value="5">Five</option>
-<option value="6">Six</option>
-</select>
+<table id="tree" class="smart-tree-table table table-condensed">
+<thead>
+    <tr>
+        <th width="20"></th>
+        <th width="20"></th>
+        <th>name</th>
+    </tr>
+</thead>
+<tbody>
+  <tr data-id="1">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Parent 1</td>
+  </tr>
+  <tr data-id="2" data-parent-id="1">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td><%= icon 'fa-eye' %></td>
+    <td>Child</td>
+  </tr>
+  <tr data-id="3" data-parent-id="1">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Child</td>
+  </tr>
+  <tr data-id="4" data-parent-id="1">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Child</td>
+  </tr>
+  <tr data-id="13" data-parent-id="1">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Child</td>
+  </tr>
+  <tr data-id="14" data-parent-id="1">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Child</td>
+  </tr>
+  <tr data-id="15" data-parent-id="1">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Child</td>
+  </tr>
+  <tr data-id="16" data-parent-id="1">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Child</td>
+  </tr>
+  <tr data-id="5">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Parent 2 </td>
+  </tr>
+  <tr data-id="6" data-parent-id="5">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Child</td>
+  </tr>
+  <tr data-id="7" data-parent-id="6">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>SubChild</td>
+  </tr>
+  <tr data-id="8" data-parent-id="5">
+    <td><div class="drag-handle"><%= icon 'fa-arrows-v' %></div></td>
+    <td></td>
+    <td>Child</td>
+  </tr>
+</tbody>
+<tfoot>
+    <tr>
+        <td></td>
+        <td></td>
+        <td colspan="2">
+            <button class="btn btn-default btn-sm"><%= icon 'fa-plus' %> Add page</button>
+            <button class="btn btn-default btn-sm"><%= icon 'fa-minus' %> Delete page</button>
+        </td>
+    </tr>
+</tfoot>
+</table>
+
+<script type="text/javascript">
+    $(function(){
+        tree = new SmartTreeTable('#tree', {
+          column: 3,
+        });
+    });
+</script>

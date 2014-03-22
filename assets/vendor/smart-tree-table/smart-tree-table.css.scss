@@ -1,0 +1,45 @@
+
+.smart-tree-table tbody {
+
+    tr:hover {
+        background: #eee;
+        cursor: pointer;
+    }
+    tr.selected {
+        background: #5e96de;
+    }
+
+    tr td span.indenter {
+        display: inline-block;
+        // margin: 0;
+    }
+
+    tr.drag-helper {
+        background: #fff;
+        box-shadow: 5px 5px 5px #777;
+        border: 1px solid #ccc;
+        z-index: 100;
+    }
+
+    tr.drag-over {
+        background: #eee;
+    }
+
+    tr.drag-source {
+        background: #e9e9e9;
+        color: #ccc;
+    }
+
+    .drop-target-overlay {
+        // border: 1px solid green;
+    }
+    .drop-target-overlay.before {
+        border-top: 3px solid black;
+    }
+    .drop-target-overlay.after {
+        border-bottom: 3px solid black;
+    }
+    .drop-target-overlay.into {
+        border-left: 3px solid black;
+    }
+}

@@ -38,7 +38,7 @@ def create_test_user( name )
 end
 
 user_seeds = []
-100.times do |i|
+20.times do |i|
   user_seeds << create_test_user( "user#{i}" )
 end
 
