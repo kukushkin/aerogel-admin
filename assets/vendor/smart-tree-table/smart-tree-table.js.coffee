@@ -166,7 +166,7 @@ class @SmartTreeTable
                 parent_id = @rows[parent_id].parent_id
 
         if @settings.on_select?
-            @settings.on_select id, @selected_row.el
+            @settings.on_select id, @selected_row, @selected_row.el
 
 
     # Binds event listeners on rows.
