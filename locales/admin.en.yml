@@ -3,7 +3,6 @@ en:
         admin:
             homepage: Home
             panes:
-                pages: Pages
                 users: Users
                 users_roles: Roles
                 users_access: Access rules

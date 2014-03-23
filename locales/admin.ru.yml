@@ -3,7 +3,6 @@ ru:
         admin:
             homepage: Главная страница
             panes:
-                pages: Страницы
                 users: Пользователи
                 users_roles: Роли
                 users_access: Правила доступа

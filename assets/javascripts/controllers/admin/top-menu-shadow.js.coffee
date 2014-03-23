@@ -6,4 +6,4 @@ $ ->
             $("#top-menu").addClass "has-shadow"
         else
             $("#top-menu").removeClass "has-shadow"
-    console?.log "admin/top-menu-shadow loaded"
+#    console?.log "admin/top-menu-shadow loaded"
