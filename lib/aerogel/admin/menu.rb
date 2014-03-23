@@ -9,6 +9,10 @@ module Aerogel::Admin
       @instance ||= self.new
     end
 
+    def self.reset!
+      instance.items.clear
+    end
+
     class Item
       attr_accessor :url, :icon, :label, :priority
       def initialize( url, opts = {} )
