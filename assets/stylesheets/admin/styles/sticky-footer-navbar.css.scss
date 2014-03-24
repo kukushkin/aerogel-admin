@@ -1,41 +1,34 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
+html,
+body {min-height:100%; padding:0; margin:0;}
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: $footer-height;
+  padding: $header-height 0 $footer-height 0;
+  position:absolute;
+  top:0; bottom:0; left:0; right:0;
 }
-
 
 #page-content {
-  padding: $header-height+$padding-large-vertical 15px 0;
+  min-height:100%;
+  padding: $padding-large-vertical 15px 0;
 }
 
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
+  margin-bottom: -$footer-height;
   height: $footer-height;
+  width: 100%;
   color: $footer-fg;
   background-color: $footer-bg;
 
-  .container {
+  #footer-contents {
     padding-right: 15px;
     padding-left: 15px;
+    vertical-align: middle;
+    line-height: $footer-height;
+    A {
+      color: $footer-link-color;
+    }
   }
 }
 
-#footer-contents {
-  @extend .center-absolutely;
-  // @extend .text-muted;
-  vertical-align: middle;
-  line-height: $footer-height;
-  A {
-    color: $footer-link-color;
-  }
-}

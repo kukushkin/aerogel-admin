@@ -3,7 +3,11 @@ namespace "/admin" do
   admin_menu "/admin/lorem", label: 'Lorem'
 
   before do
-    layout "admin"
+    if request.xhr?
+      layout "admin/modal"
+    else
+      layout "admin"
+    end
 
     on_access_denied do |path|
       redirect "/user/login?on_success=#{path}" unless current_user?

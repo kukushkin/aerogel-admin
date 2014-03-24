@@ -16,13 +16,19 @@ end
 
 # Renders a link to open a modal window with remote content.
 #
-def link_to_modal( url, text, opts = {} )
+def link_to_modal( url, *args, &block )
+  opts = (String === args.first) ? args[1] : args[0]
   opts = {
     href: url,
     'data-toggle' => 'modal',
     'data-target' => '#adminModal'
-  }.deep_merge opts
-  tag :a, text, opts
+  }.deep_merge( opts || {} )
+  if String === args.first
+    args[1] = opts
+  else
+    args[0] = opts
+  end
+  tag :a, *args, &block
 end
 
 # Renders a link to open a modal window with remote content,

@@ -2,12 +2,6 @@ namespace "/admin/users" do
 
   admin_menu "/admin/users/", icon: 'fa-users', label: :'aerogel.admin.panes.users', priority: 20
 
-
-  before do
-    layout "admin/modal" if request.xhr?
-    # sleep 3 if request.xhr?
-  end
-
   get "/" do
     pass
   end
