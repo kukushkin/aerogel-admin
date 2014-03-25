@@ -39,6 +39,17 @@ module Aerogel::Admin
       erb template("table.html"), locals: { table: self }, layout: false
     end
 
+    # Renders html params for <table ...>
+    #
+    def html_params
+      attrs = @options[:html_params].dup
+      attrs.merge!({
+        # :action => @options[:action]
+      })
+      attrs.map{|n, v| v.nil? ? "#{n}" : "#{n}=\"#{v}\""}.join(" ")
+    end
+
+
   private
 
     class Column

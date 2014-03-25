@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped" <%= table.html_params %> >
 <thead>
     <tr>
     <%= partial table.template("table_column"), locals: { table: table }, collection: table.columns %>
