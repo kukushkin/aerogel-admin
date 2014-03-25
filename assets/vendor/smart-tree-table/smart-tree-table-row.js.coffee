@@ -14,6 +14,9 @@ class @SmartTreeTableRow
         @parent_id = @el.attr 'data-parent-id'
         @parent_id = null if @parent_id == ''
         @contents = @active_column().html()
+        @attributes = {}
+        for attr in @el.get(0).attributes
+            @attributes[attr.name] = attr.value
         @_properties = {}
 
 
