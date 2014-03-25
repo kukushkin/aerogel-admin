@@ -15,7 +15,8 @@ module Aerogel::Admin
 
     DEFAULT_OPTIONS = {
       class: 'table-striped',
-      style: 'standard'
+      style: 'standard',
+      html_params: {}
     }
 
     def initialize( object, options = {}, &block )
