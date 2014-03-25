@@ -1,0 +1,22 @@
+<% if flash[:error] || flash[:debug] || flash[:notice] %>
+<div class="admin-alerts">
+    <% if flash[:error] %>
+        <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= flash[:error] %>
+        </div>
+    <% end %>
+    <% if flash[:debug] %>
+        <div class="alert alert-dismissable alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= flash[:debug] %>
+        </div>
+    <% end %>
+    <% if flash[:notice] %>
+        <div class="alert alert-dismissable alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+</div>
+<% end %>
