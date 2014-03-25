@@ -15,4 +15,4 @@ $ ->
     $(document).bind "ajaxStop", ->
         console?.log "** ajax-watcher: stop"
         hide_global_ajax_indicator()
-    console?.log "** ajax-watcher: initialized"
+    # console?.log "** ajax-watcher: initialized"

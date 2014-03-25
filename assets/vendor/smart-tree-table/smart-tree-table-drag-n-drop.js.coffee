@@ -1,10 +1,10 @@
 # Enables drag-and-drop functionality on passed SmartTreeTable
 #
-
+debug = false
 log = (msg) ->
-    console?.log "** smart-tree-table-drag-n-drop: #{msg}"
+    console?.log "** smart-tree-table-drag-n-drop: #{msg}" if debug
 error = (msg) ->
-    console?.error "** smart-tree-table-drag-n-drop: #{msg}"
+    console?.error "** smart-tree-table-drag-n-drop: #{msg}" if debug
     throw new Error msg
 
 

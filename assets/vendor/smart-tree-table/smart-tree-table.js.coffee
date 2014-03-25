@@ -1,11 +1,11 @@
 #= require ./smart-tree-table-row
 #= require ./smart-tree-table-drag-n-drop
 #
-
+debug = false
 log = (msg) ->
-    console?.log "** smart-tree-table: #{msg}"
+    console?.log "** smart-tree-table: #{msg}" if debug
 error = (msg) ->
-    console?.error "** smart-tree-table: #{msg}"
+    console?.error "** smart-tree-table: #{msg}" if debug
     throw new Error msg
 
 class @SmartTreeTable
@@ -153,20 +153,22 @@ class @SmartTreeTable
 
     # Selects row with +id+.
     #
-    select: (id) ->
+    select: (id, process_callbacks = true ) ->
         @selected_row.selected = false if @selected_row?
-        return unless id?
-        @selected_row = @rows[id]
-        @selected_row.selected = true
+        @selected_row = null
+        @selected_row = @rows[id] if id?
+        @selected_row.selected = true if @selected_row?
         # if parent is collapsed, expand all until first expanded ancestor
-        if @selected_row.parent_id?
+        if @selected_row? && @selected_row.parent_id?
             parent_id = @selected_row.parent_id
             while parent_id? && not @rows[parent_id].expanded
                 @expand parent_id
                 parent_id = @rows[parent_id].parent_id
 
-        if @settings.on_select?
-            @settings.on_select id, @selected_row, @selected_row.el
+        if @settings.on_select? && process_callbacks
+            selected_id = if @selected_row? then @selected_row.id else null
+            selected_el = if @selected_row? then @selected_row.el else null
+            @settings.on_select selected_id, @selected_row, selected_el
 
 
     # Binds event listeners on rows.
