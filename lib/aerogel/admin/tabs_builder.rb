@@ -51,7 +51,9 @@ module Aerogel::Admin
       end
 
       def human_label
-        if label.is_a? Symbol
+        if label.is_a? String
+          label
+        elsif label.is_a? Symbol
           I18n.t label
         else
           label.humanize
