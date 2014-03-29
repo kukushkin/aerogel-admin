@@ -12,7 +12,10 @@ $item-hover-bg: #f5f5f5;
 $item-hover-fg: inherit;
 $item-disabled-fg: #afafaf;
 $item-disabled-bg: inherit;
-
+$item-nodata-fg: #afafaf;
+$item-nodata-bg: inherit;
+$item-with-error-fg: #a94442;
+$item-with-error-bg: inherit;
 
 /*
  * Grid layout main column width
