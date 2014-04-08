@@ -1,0 +1,1 @@
+#= require ./smart-list-table/smart-list-table

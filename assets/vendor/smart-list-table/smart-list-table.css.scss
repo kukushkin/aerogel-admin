@@ -1,0 +1,54 @@
+
+.smart-list-table tbody {
+
+    tr:hover {
+        background: $stt-hover-bg;
+        color: $stt-hover-fg;
+        cursor: $stt-hover-cursor;
+    }
+    tr.selected {
+        background: $stt-selected-bg;
+        color: $stt-selected-fg;
+    }
+
+    tr td span.indenter {
+        display: inline-block;
+        // margin: 0;
+    }
+
+    tr.drag-helper {
+        background: $stt-drag-helper-bg;
+        box-shadow: $stt-drag-helper-shadow;
+        border: $stt-drag-helper-border;
+        z-index: $stt-drag-helper-zindex;
+    }
+
+    tr.drag-over {
+        background: $stt-drag-over-bg;
+        color: $stt-drag-over-fg;
+    }
+
+    tr.drag-source {
+        background: $stt-drag-source-bg;
+        color: $stt-drag-source-fg;
+    }
+
+    .drop-target-overlay {
+        // border: 1px solid green;
+    }
+    .drop-target-overlay.before {
+        border-style: $stt-drop-target-overlay-before-border-style;
+        border-width: $stt-drop-target-overlay-before-border-width;
+        border-color: $stt-drop-target-overlay-before-border-color;
+    }
+    .drop-target-overlay.into {
+        border-style: $stt-drop-target-overlay-into-border-style;
+        border-width: $stt-drop-target-overlay-into-border-width;
+        border-color: $stt-drop-target-overlay-into-border-color;
+    }
+    .drop-target-overlay.after {
+        border-style: $stt-drop-target-overlay-after-border-style;
+        border-width: $stt-drop-target-overlay-after-border-width;
+        border-color: $stt-drop-target-overlay-after-border-color;
+    }
+}
