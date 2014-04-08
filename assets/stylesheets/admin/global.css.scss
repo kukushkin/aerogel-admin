@@ -22,6 +22,14 @@ $item-with-error-fg: #a94442;
 $item-with-error-bg: inherit;
 
 /*
+ * Inputs styling
+ */
+ $input-placeholder-fg: #ddd;
+ $input-border-focus-color: #66afe9;
+ $input-border-radius: 3px;
+ $input-border-color: #d8d8d8;
+
+/*
  * Grid layout main column width
  */
 $layout-width: 800px;

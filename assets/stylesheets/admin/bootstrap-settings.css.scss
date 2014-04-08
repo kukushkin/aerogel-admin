@@ -28,6 +28,6 @@ $brand-danger: $item-with-error-fg;
 
 // inputs
 $input-color-placeholder: #ddd;
-// $input-border-focus: <color>
+$input-border-focus: $input-border-focus-color;
 // $input-border-radius:
-// $input-border: <color>
+$input-border: $input-border-color;

@@ -12,6 +12,8 @@ admin_modal_replace_buttons = (el, target) ->
             admin_modal_replace_submit_button button, form, target
         if button.attr('type') == 'cancel'
             admin_modal_replace_cancel_button button, form, target
+        if button.attr('type') == 'select'
+            admin_modal_replace_other_button button, form, target
 
 
 # Process 'submit' button
@@ -28,6 +30,12 @@ admin_modal_replace_cancel_button = (button, form, target) ->
     button.attr 'data-dismiss', 'modal'
     button.appendTo target
 
+# Process 'cancel' button
+#
+admin_modal_replace_other_button = (button, form, target) ->
+    # button.attr 'data-dismiss', 'modal'
+    button.appendTo target
+
 
 
 enable_form_submit_on_enter = (form) ->
@@ -41,5 +49,8 @@ enable_form_submit_on_enter = (form) ->
 
 
 $ ->
-    admin_modal_replace_buttons ".modal-body .btn[type=submit], .modal-body .btn[type=cancel]", ".modal-footer"
+    admin_modal_replace_buttons(
+        ".modal-body .btn[type=submit], .modal-body .btn[type=cancel], .modal-body .btn[type=select]",
+        ".modal-footer"
+    )
 
