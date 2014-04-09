@@ -1,6 +1,6 @@
 <tr>
 <% table.columns.each do |col| %>
-    <td>
+    <td <%= col.html_params %>>
         <%= col.block.present? ? col.block.call( table_row ) : h( table_row.send col.field ) %>
     </td>
 <% end %>

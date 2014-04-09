@@ -57,6 +57,8 @@ module Aerogel::Admin
 
       attr_accessor :table, :field, :label, :options, :block
 
+      KNOWN_OPTIONS = [ :label ]
+
       def initialize( table, field, options = {}, &block )
         self.table = table
         self.field = field
@@ -69,6 +71,8 @@ module Aerogel::Admin
         if label.is_a? Symbol
           if table.object.respond_to? :human_attribute_name
             table.object.human_attribute_name label, default: label
+          elsif table.object.respond_to?( :first ) &&  table.object.first.class.respond_to?( :human_attribute_name )
+            table.object.first.class.human_attribute_name label, default: label
           else
             I18n.t label
           end
@@ -77,6 +81,14 @@ module Aerogel::Admin
         else
           label.to_s.humanize
         end
+      end
+
+      # Renders html params for column cells
+      #
+      def html_params
+        attrs = @options.except( *KNOWN_OPTIONS )
+        attrs = attrs.deep_merge( @options[:html_params] ) if @options.key? :html_params
+        attrs.to_html_params
       end
 
     end # class Column
