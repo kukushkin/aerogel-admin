@@ -18,8 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "aerogel-core"
-  spec.add_dependency "aerogel-users"
+  spec.add_dependency "aerogel-core", "~> 1.4"
+  spec.add_dependency "aerogel-forms"
+  spec.add_dependency "aerogel-users", "~> 1.4"
+  spec.add_dependency "aerogel-media", "~> 1.4"
   spec.add_dependency "aerogel-bootstrap"
   spec.add_dependency "aerogel-font_awesome"
 
