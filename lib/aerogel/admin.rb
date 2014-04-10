@@ -1,4 +1,10 @@
 require 'aerogel/core'
+require 'aerogel/forms'
+require 'aerogel/users'
+require 'aerogel/media'
+require 'aerogel/bootstrap'
+require 'aerogel/font_awesome'
+
 require "aerogel/admin/version"
 require "aerogel/admin/core"
 require "aerogel/admin/menu"
