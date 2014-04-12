@@ -1,6 +1,6 @@
 namespace "/admin/users" do
 
-  admin_menu "/admin/users/", icon: 'fa-users', label: :'aerogel.admin.panes.users', priority: 20
+  admin_menu "/admin/users/", icon: 'fa-users', label: :'aerogel.admin.panes.users', priority: 90
 
   get "/" do
     pass
