@@ -44,6 +44,7 @@ class @SmartTreeTable
                     after: ''  # contents for 'after' insert mode
         debug: false
         on_select: null
+        on_tree_change: null
 
     # Creates a SmartTreeTable object using an HTML table specified by +el+ selector.
     #
@@ -246,6 +247,9 @@ class @SmartTreeTable
 
         # finishing touches
         @expand to_id if insert_mode == 'into'
+        if @settings.on_tree_change?
+            @settings.on_tree_change()
+
 
 
     # Moves tree node children in place.
