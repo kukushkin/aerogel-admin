@@ -36,6 +36,15 @@ class @SmartTreeTableRow
     hide: ->
         @el.hide()
 
+    # Returns attribute specified by +name+.
+    # 'data-...' attributes can be referenced by name without 'data-' prefix.
+    # Thus, 'data-id' can be accessed as:
+    #   row.attr 'id'
+    #
+    attr: (name) ->
+        return @attributes[name] if @attributes[name]?
+        @attributes["data-#{name}"]
+
     get_property: (name) ->
         @_properties[name]
     set_property: (name, v) ->
